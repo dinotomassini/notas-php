@@ -1,27 +1,24 @@
 <html>
-
-<head>
-  <title>Notas de PHP</title>
-  <style>
-  h2,
-  h3 {
-    background-color: black;
-    color: white;
-    text-align: center;
-  }
-
-  /* h4::after {
+	<head>
+		<title>Notas de PHP</title>
+		<style>
+			h2,h3 {
+				background-color: black;
+				color: white;
+				text-align: center;
+			}
+			/* h4::after {
 				content: '\A';
 				white-space: pre;
 			} */
-  /* br { display: none; } --> esto elimina visualmente los saltos de linea */
-  </style>
-</head>
+			/* br { display: none; } --> esto elimina visualmente los saltos de linea */
+		</style>
+	</head>
+	<body>
+		<h1>Notas de Dino</h1>
 
-<body>
-  <h1>Notas de Dino</h1>
-  <h2>
-    <?php 
+		<h2>
+			<?php 
 				echo "FUNCIONA PHP!!!"; 
 				// COMENTARIO UNA SOLA LINEA
 				/*
@@ -30,48 +27,46 @@
 					LINEAS
 				*/
 			?>
-  </h2>
-
-  <h3>VARIABLES</h3>
-  <h4>
-    <?php 
-				$texto = "string";
-				$entero = 123;
-				$flotante = 3.14;
-				$booleano = true;
+		</h2>
+		
+		<h3>VARIABLES</h3>
+		<h4>
+			<?php 
+				$texto="string";
+				$entero=123;
+				$flotante=3.14;
+				$booleano=true;
 
 				echo "La variable texto vale $texto.<br />";
 				echo "La variable entero vale $entero.<br />";
 				echo "La variable flotante vale $flotante.<br />";
 				echo "La variable booleano vale $booleano.<br />";
 			?>
-  </h4>
+		</h4>
 
-  <h3>CONSTANTES</h3>
-  <h4>
-    <?php 
+		<h3>CONSTANTES</h3>
+		<h4>
+			<?php 
 				define("PI", 3.14);
-				const OTRA_CONSTANTE = "Asi tambien se pueden definir constantes.";
-				echo "La constante PI vale ".PI."<br />";
-				echo OTRA_CONSTANTE;
+				echo "La constante PI vale ".PI;
 			?>
-  </h4>
+		</h4>
 
-  <h3>IF</h3>
-  <h4>
-    <?php
-				$edad = 38;
+		<h3>IF</h3>
+		<h4>
+			<?php
+				$edad=38;
 				if ($edad > 18) {
 					echo "Sos mayor de edad.";
 				} else {
 					echo "Sos menor de edad.";
 				}
 			?>
-  </h4>
+		</h4>
 
-  <h3>SWITCH</h3>
-  <h4>
-    <?php 
+		<h3>SWITCH</h3>
+		<h4>
+			<?php 
 				$opcion='Segunda';
 				switch ($opcion) {
 					case 'Primera':
@@ -87,20 +82,20 @@
 						echo "No eligio una opcion valida.";
 				}	
 			?>
-  </h4>
+		</h4>
 
-  <h3>FOR</h3>
-  <h4>
-    <?php 
+		<h3>FOR</h3>
+		<h4>
+			<?php 
 				for($i=0; $i<10; $i++) {
 					echo "El valor de i es $i. <br />";
 				}
 			?>
-  </h4>
+		</h4>
 
-  <h3>WHILE</h3>
-  <h4>
-    <?php 
+		<h3>WHILE</h3>
+		<h4>
+			<?php 
 				$numero = 0;
 				while ($numero < 10) {
 					echo "Estoy todavia en el ciclo $numero. <br />";
@@ -108,41 +103,30 @@
 				}
 				echo "Ahora estoy afuera del ciclo con $numero"
 			?>
-  </h4>
+		</h4>
 
-  <h3>DO WHILE</h3>
-  <h4>
-    <?php 
+		<h3>DO WHILE</h3>
+		<h4>
+			<?php 
 				// revisar esta parte que no me esta imprimiendo el valor, pero funciona.
 				// creo que cuando es false es igual a cero y no escribe nada en pantalla.
-				/**
-				 * la variable es booleana
-				 * si el echo lo pongo en una linea sola y la variable es falsa, me muestra un espacio de texto vacio.
-				 * si el echo lo pongo en una linea sola y con la ternaria, no muestra el texto aca pero si el de la variable.
-				 */
 				$login=false;
 				$contador=0;
-				echo "El login es ";
-				echo $login? "verdadreo":"falso";
-				echo ".<br />";
+				echo "El login es $login.<br />";
 				do {
-					echo "Todavia el login es ";
-					echo $login? "verdadreo":"falso";
-					echo ".<br />";
+					echo "Todavia el login es $login.<br />";
 					$contador++;
 					if ($contador = 10) {
 						$login=true;
 					}
 				} while (! $login);
-				echo "Ahora el login es ";
-				echo $login? "verdadreo":"falso";
-				echo ".<br />";
+				echo "Ahora el login es $login.";
 			?>
-  </h4>
+		</h4>
 
-  <h3>ARRAYS</h3>
-  <h4>
-    <?php 
+		<h3>ARRAYS</h3>
+		<h4>
+			<?php 
 				$arreglo_vacio = array();
 
 				$arreglo = array("esto", "es", "un", "array");
@@ -206,7 +190,7 @@
 				echo "<br />";
 				echo "<br />";
 
-				// devuelve un nuevo arreglo con todos los elementos menos desde el inicio hatsta el elemento n(elimina desdes el inicio hasta el numero que le pasemos)
+				// devuelve un nuevo arreglo con los todos elementos menos desde el inicio hatsta el elemento n(elimina desdes el inicio hasta el numero que le pasemos)
 				echo "Una parte del array:";
 				echo "<br />";
 				$slice = array_slice($cursos,2);
@@ -227,8 +211,8 @@
 				// elimina y devuelve el ultimo elemento del array
 				echo "Eliminar el ultimio elemento de un array:";
 				echo "<br />";
-				$arrayPop = array_pop($array1);
-				echo "Se elimino el elemento $arrayPop <br />";
+				$arrayMerge = array_pop($array1);
+				echo "Se elimino el elemento $arrayMerge <br />";
 				print_r($array1);
 				echo "<br />";
 				echo "<br />";
@@ -250,14 +234,14 @@
 				echo "<br />";
 				echo "<br />";
 			?>
-  </h4>
+		</h4>
 
-  <h3>MATRICES</h3>
-  <h4></h4>
+		<h3>MATRICES</h3>
+		<h4></h4>
 
-  <h3>FOR EACH</h3>
-  <h4>
-    <?php 
+		<h3>FOR EACH</h3>
+		<h4>
+			<?php 
 				$futbol = array(
 					'barcelona' => 'messi',
 					'juventus' => 'ronaldo',
@@ -267,22 +251,22 @@
 					echo "En el equipo ".$key." juega ".$value.".<br />";	
 				}
 			?>
-  </h4>
+		</h4>
 
-  <h3>FUNCIONES</h3>
-  <h4>
-    <?php 
+		<h3>FUNCIONES</h3>
+		<h4>
+			<?php 
 				function estudiante($nombre, $apellido='Tomassini') {
 					echo "Esto se ejecuta dentro de la funcion.<br />";
 					return "Hola $nombre $apellido";
 				}
 				echo estudiante("Dino");
 			?>
-  </h4>
+		</h4>
 
-  <h3>SCOPE DE VARIABLES</h3>
-  <h4>
-    <?php 
+		<h3>SCOPE DE VARIABLES</h3>
+		<h4>
+			<?php 
 				// si queremos usar una variable declarada fuera de una funcion, debemos dentro de la funcion decirle que queremos usar esa variable(global $variable).
 				// a esta variable se le puede cambiar el valor dentro de la funcion y quedara con ese valor al salir de la misma.
 				$edad = 20;
@@ -298,14 +282,14 @@
 					echo "Nombre dentro de la funcion: $nombre<br />";
 				}
 				funcionEdad();
-				echo "Edad despues de la funcion: $edad<br />";
+				echo "Edad: $edad<br />";
 				echo "Nombre despues de la funcion: $nombre<br />";
 			?>
-  </h4>
+		</h4>
 
-  <h3>VARIABLES GLOBALES</h3>
-  <h4>
-    <?php 
+		<h3>VARIABLES GLOBALES</h3>
+		<h4>
+			<?php 
 				$n1 = 4;
 				$n2 = 6;
 				function sumar() {
@@ -317,9 +301,8 @@
 				echo "<br />";
 
 				echo "Contenido de la variable reservada _SERVER es:<br />";
-				foreach($_SERVER as $key => $value){
-					echo "$key => $value<br />";
-				}
+				print_r($_SERVER);
+				echo "<br />";
 				echo "<br />";
 				echo "La ubicacion de este archivo es: ".$_SERVER['DOCUMENT_ROOT'].$_SERVER['PHP_SELF'];
 				echo "<br />";
@@ -350,155 +333,38 @@
 					echo "Todavia no se llenaron los datos del formulario.";
 				}
 				echo "<br />";
-			?>
-  </h4>
 
-  <h3>Clases</h3>
-  <h4>
-    <?php 
-				class Persona{
-					public $name;
-					private $lastName;
-					protected $age;
 
-					function __construct($name, $lastName, $age){
-						$this->name = $name;
-						$this->lastName = $lastName;
-						$this->age = $age;
-					}
-
-					public function getAllName(){
-						echo "$this->name $this->lastName";
-					}
-
-					public function drinkChopp(){
-						if($this->isAdult($this->age)){
-							echo "Si puede tomar cerveza.";
-						}else{
-							echo "No puede tomar una cerveza tiene menos de 18 años.";
-						}
-					}
-
-					private function isAdult($age){
-						return ( $age >= 18);
-					}
-				}
-
-				$Dino = new Persona("Dino", "Tomassini", 38);
-				$Roberto = new Persona("Roberto", "Robert", 16);
-				$Dino->getAllName();
-				echo "<br />";
-				$Dino->drinkChopp();
-				echo "<br />";
-				$Roberto->getAllName();
-				echo "<br />";
-				$Roberto->drinkChopp();
-				echo "<br />";
-			?>
-  </h4>
-
-  <h3>Herencia</h3>
-  <h4>
-    <?php 
-				class Usuario extends Persona{
-					public $userName;
-					public $pass;
-
-					function __construct($name, $lastName, $age ,$userName,$pass){
-						parent::__construct($name, $lastName, $age);
-						$this->userName = $userName;
-						$this->pass = $pass;
-					}
-
-					public function getData(){
-						echo $this->getAllName()." tiene el usuario $this->userName con la contraseña $this->pass";
-					}
-				}
-
-				$dtom = new Usuario("Dino", "Tomassini", 38, "dtom", "123456");
-				$rob = new Usuario("Roberto", "Robert", 16, "rob", "qwerty");
-				$dtom->getData();
-				echo "<br />";
-				$rob->getData();
-				echo "<br />";
-			?>
-  </h4>
-
-  <h3>CRUD BD</h3>
-  <h4>
-    <?php 
-				class Conection{
-					private $DB_HOST = "127.0.0.1";
-					private $DB_USER = "app";
-					private $DB_PASS = "pass";
-					private $DB_NAME = "usuarios";
-
-					/**
-					 * Conexion a la base de datos
-					 */
-					private function dbConection(){
-						echo "Intentando conectarse a la base de datos.";
-						echo "<br />";
-						$conn = mysqli_connect($this->DB_HOST, $this->DB_USER, $this->DB_PASS, $this->DB_NAME);
-						if(!$conn){
-							echo "Error en la conexion: ".mysqli_connect_error();
-							echo "<br />";
-							return null;
-						}
-						echo "Conexion establecida.";
-						echo "<br />";
-						return $conn;
-					}
-
-					/**
-					 * Pedir datos de la base de datos
-					 */
-					public function verDatos(){
-						$db = $this->dbConection();
-						$sql = "SELECT * FROM users";
-						// $prepare = mysqli_prepare($db, $sql);
-						$result = mysqli_query($db, $sql);//En la documentacion de PHP dice que execute esta obsoleto y sera removido
-						// echo "Array asociativo: <br />";
-						// $arr = mysqli_fetch_assoc($result);
-						// print_r($arr);
-						// echo "<br />";
-						// echo "Array: <br />";
-						$arr = mysqli_fetch_array($result);
-						print_r($arr);
-						// echo "<br />";
-					}
-
-					public function insert($user){
-
-					}
-
-					public function update($id, $newUser){}
-
-					public function delete($id){}
-				}
-
-				$usuarios = new Conection();
-				$usuarios->verDatos();
-				echo "Insertando nuevo usuario<br />";
-				$usuarios->insert(new Usuario('Pepe', 'Rodriguez', 17, 'pepe', 'pepe')); 	
-				$usuarios->verDatos();
-				echo "Actualizando el usuario con id 2<br />";
-				$usuarios->update(2, new Usuario('Robert', 'Fernandez', 63, 'robfer', 'qwerty')); 	
-				$usuarios->verDatos();
-				echo "Borrando el usuario con id 3<br />";
-				$usuarios->delete(3);
-				$usuarios->verDatos();
-				echo "<br />";
 
 			?>
-  </h4>
+		</h4>
 
-  <h3></h3>
-  <h4>
-    <?php 
+		<h3>NOSE???</h3>
+		<h4>
+			<?php 
 				
 			?>
-  </h4>
-</body>
+		</h4>
 
+		<h3>NOSE???</h3>
+		<h4>
+			<?php 
+				
+			?>
+		</h4>
+
+		<h3>NOSE???</h3>
+		<h4>
+			<?php 
+				
+			?>
+		</h4>
+
+		<h3>NOSE???</h3>
+		<h4>
+			<?php 
+				
+			?>
+		</h4>
+	</body>
 </html>
